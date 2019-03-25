@@ -7,6 +7,14 @@ import Button from './button'
 import LikeButton from './like-button'
 
 class App extends Component {
+  
+  constructor () {
+    super()
+    this.state = {
+      textao: 'Cesar teste'
+    }
+  }
+
   render () {
     return (
       <div>
@@ -16,10 +24,18 @@ class App extends Component {
           <Title name='Cesar' lastname='Fermino' />
           <Square />
           <br/>
-        </div>
-        <div className='container' >
           <Button handleClick={() => alert('Botão simplão com textão') } ><span>Texto</span> Children</Button>
           <LikeButton />
+          <br/><br/>
+        </div>
+        <div className='container' style={{
+          backgroundColor: '#dddddd' ,
+          height: '50px',
+          width: '100px'
+        }} onClick={() => this.setState({
+          textao: 'Outro texto'
+        })} >
+          {this.state.textao}
         </div>
       </div>
     )
