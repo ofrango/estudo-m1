@@ -7,11 +7,10 @@ import Button from './button'
 import LikeButton from './like-button'
 
 class App extends Component {
-  
   constructor () {
     super()
     this.state = {
-      textao: 'Cesar teste'
+      color: 'green'
     }
   }
 
@@ -28,14 +27,11 @@ class App extends Component {
           <LikeButton />
           <br/><br/>
         </div>
-        <div className='container' style={{
-          backgroundColor: '#dddddd' ,
-          height: '50px',
-          width: '100px'
-        }} onClick={() => this.setState({
-          textao: 'Outro texto'
-        })} >
-          {this.state.textao}
+        <div>
+          <Square color={this.state.color} />
+          {['red','green','blue'].map((color) =>(
+            <Button key={color} handleClick={() => this.setState({color})}>{color}</Button>
+          ))}
         </div>
       </div>
     )
